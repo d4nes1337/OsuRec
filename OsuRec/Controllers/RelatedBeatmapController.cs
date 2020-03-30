@@ -5,20 +5,22 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using OsuRec.ViewModels;
+using OsuRec.Data.mock;
 
 namespace OsuRec.Controllers
 {
     public class RelatedBeatmapController : Controller
     {
-        private readonly RelationProcess _relationProcess = new RelationProcess();
+        private readonly List<MockRelatedBeatmap> relatedBeatmaps;
 
 
         public ViewResult ListOfRelatedBeatmaps()
         {
-            _relationProcess.ShowStats("D4NES1337");
-            ViewBag.Mod = $"Main Mod: {_relationProcess.playStyle.MainMod}".ToString();
-            var relatedMapsByMainMod = _relationProcess.RelatedBeatmapsByMainMod;
-            return View(relatedMapsByMainMod);
+            //ViewBag.Mod = $"Main Mod: {_relationProcess.MainMod}".ToString();
+            RelatedBeatmapsListViewModel relatedViewModel = new RelatedBeatmapsListViewModel();
+            //relatedViewModel.RelatedBeatmaps = relatedBeatmaps;
+            return View(relatedViewModel);
         }
     }
 }

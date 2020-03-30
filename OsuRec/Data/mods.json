@@ -1,0 +1,67 @@
+[
+  {
+    "ModName":"NoMod",
+    "ModID":0,
+    "ModIMG": "mod-nomod.png"
+  },
+  {
+    "ModName":"NoFail",
+    "ModID":1,
+    "ModIMG": "mod-NF.png"
+  },
+  {
+    "ModName":"Easy",
+    "ModID":2,
+    "ModIMG": "mod-EZ.png"
+  },
+  {
+    "ModName":"TouchDevice",
+    "ModID":4,
+    "ModIMG": "mod-touchdevice.png"
+  },
+  {
+    "ModName":"Hidden",
+    "ModID":8,
+    "ModIMG": "mod-HD.png"
+  },
+  {
+    "ModName":"HardRock",
+    "ModID":16,
+    "ModIMG": "mod-HR.png"
+  },
+  {
+    "ModName":"SuddenDeath",
+    "ModID":32,
+    "ModIMG": "mod-SD.png"
+  },
+  {
+    "ModName":"DoubleTime",
+    "ModID":64,
+    "ModIMG": "mod-DT.png"
+  },
+  {
+    "ModName":"HalfTime",
+    "ModID":256,
+    "ModIMG": "mod-HT.png"
+  },
+  {
+    "ModName":"Nightcore",
+    "ModID":512,
+    "ModIMG": "mod-NC.png"
+  },
+  {
+    "ModName":"Flashlight",
+    "ModID":1024,
+    "ModIMG": "mod-FL.png"
+  },
+  {
+    "ModName":"SpunOut",
+    "ModID":4096,
+    "ModIMG": "mod-spunout.png"
+  },
+  {
+    "ModName":"Perfect",
+    "ModID":16384,
+    "ModIMG": "mod-PF.png"
+  }
+]

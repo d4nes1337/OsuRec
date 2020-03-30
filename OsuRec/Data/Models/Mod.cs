@@ -17,7 +17,7 @@ namespace OsuRec.Data.Models
         public List<Mod> ModCombo = new List<Mod>();
 
 
-        private const string pathToJson = "../../../Processing/Models/mods.json";
+        private const string pathToJson = "../../OsuRec/OsuRec/Data/Models/mods.json";
 
         public void GetModIMGbyID(string modID)
         {

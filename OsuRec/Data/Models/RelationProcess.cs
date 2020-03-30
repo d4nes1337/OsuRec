@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
+using System.Net;
 using System.Threading.Tasks;
 
 namespace OsuRec.Data.Models
@@ -20,8 +21,8 @@ namespace OsuRec.Data.Models
         public List<mock.MockRelatedBeatmap> RelatedBeatmapsByMainMod = new List<mock.MockRelatedBeatmap>();
         public List<mock.MockRelatedBeatmap> RelatedBeatmapsBySecondMod = new List<mock.MockRelatedBeatmap>();
 
-        private string MainMod;
-        private string SecondMod = "none";
+        public string MainMod;
+        public string SecondMod = "none";
         public decimal PPRangeFrom;
         public decimal PPRangeTo;
         private CultureInfo culture = new CultureInfo("en-US");
@@ -135,10 +136,19 @@ namespace OsuRec.Data.Models
             }
             return relatedBeatmaps;
         }
+
+        //private List<mock.MockRelatedBeatmap> FillBeatmapInfo(List<mock.MockRelatedBeatmap> relatedBeatmaps)
+        //{
+        //    foreach (var item in relatedBeatmaps)
+        //    {
+        //        SetBeatmapInfo(item);
+        //    }
+        //    return relatedBeatmaps;
+        //}
         #endregion
 
 
-        #region Helpers
+        #region Setting methods
         public dynamic ShowStats(string Nickname)
         {
             dynamic userData = SetPlayStyle(Nickname);
