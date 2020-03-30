@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace OsuRec.Data.Models
 {
-    class RelationProcess
+    public class RelationProcess
     {
         public PlayStyleInfo playStyle = new PlayStyleInfo();
         private OsuAPI.DataProcessing dataProcessing = new OsuAPI.DataProcessing();
@@ -145,14 +145,13 @@ namespace OsuRec.Data.Models
             GetScoresByBeatmaps();
             GetRelatedUsersScores(MainModScores);
             //console for test purposes
-            Console.WriteLine($"Main mod: {playStyle.MainMod}, second mod {playStyle.SecondMod}");
-            Console.WriteLine($"1: {MainModBeatmaps[0]}, 10 :{MainModBeatmaps[9]}");
-            Console.WriteLine($"PP from: {PPRangeFrom}, to :{PPRangeTo}");
+            //Console.WriteLine($"Main mod: {playStyle.MainMod}, second mod {playStyle.SecondMod}");
+            //Console.WriteLine($"1: {MainModBeatmaps[0]}, 10 :{MainModBeatmaps[9]}");
+            //Console.WriteLine($"PP from: {PPRangeFrom}, to :{PPRangeTo}");
             RelatedBeatmapsByMainMod = SortSimilarToTopScores(RelatedBeatmapsByMainMod, MainModBeatmaps);
             RelatedBeatmapsBySecondMod = SortSimilarToTopScores(RelatedBeatmapsBySecondMod, SecondModBeatmaps);
             RelatedBeatmapsByMainMod = AddLinks(RelatedBeatmapsByMainMod);
             RelatedBeatmapsBySecondMod = AddLinks(RelatedBeatmapsBySecondMod);
-
             return userData;
         }
         #endregion

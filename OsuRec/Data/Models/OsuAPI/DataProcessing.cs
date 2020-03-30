@@ -11,11 +11,11 @@ namespace OsuRec.Data.Models.OsuAPI
     public class DataProcessing
     {
         private const string base_url = "https://osu.ppy.sh";
-        private string Key = GetKey("../../../API/Key.txt");
+        private string Key = GetKey("../../OsuRec/OsuRec/Data/Models/OsuAPI/Key.txt");
         private string ValidSymbols = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghigklmnopqrstuvwxyz1234567890";
 
 
-        protected string ProfileName;
+        protected string ProfileName = "D4NES1337";
         protected Int64 ProfileID;
         public dynamic userScores { get; protected set; }
 

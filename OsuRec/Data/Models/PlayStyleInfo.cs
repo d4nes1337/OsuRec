@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace OsuRec.Data.Models
 {
-    class PlayStyleInfo
+    public class PlayStyleInfo
     {
 
         private List<string> ModsInTopScores = new List<string>();

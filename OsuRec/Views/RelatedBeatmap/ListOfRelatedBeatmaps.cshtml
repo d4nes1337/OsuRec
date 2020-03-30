@@ -1,0 +1,28 @@
+﻿@using OsuRec.Data.Models
+@using OsuRec.Data.mock
+@model List<MockRelatedBeatmap>
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>ListOfRelatedBeatmaps</title>
+</head>
+<body>
+    <h1> Beatmaps by Main Mod </h1>
+    <h3 @ViewBag.Mod </h3>
+    @{ 
+        foreach (var RelatedBeatmap in Model)
+        {
+            <div>
+                <h2>Карты: @RelatedBeatmap.pp</h2>
+            </div>
+        }
+
+    }
+</body>
+</html>
