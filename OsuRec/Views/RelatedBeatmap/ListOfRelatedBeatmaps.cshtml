@@ -1,38 +1,19 @@
-﻿@using OsuRec.Data.Models
-@using OsuRec.ViewModels
-@using OsuRec.Data.mock
-@model RelatedBeatmapsListViewModel
-@{
-    Layout = null;
-}
-
-<!DOCTYPE html>
-
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>ListOfRelatedBeatmaps</title>
-</head>
-<body>
-    <h1> Beatmaps by Main Mod </h1>
-    @{ 
-        int i = 0;
-        foreach (var RelatedBeatmap in Model.RelatedBeatmaps)
-        {
-            i++;
-            if (i<= 10) { 
-            RelatedBeatmap.SetBeatmapInfo(RelatedBeatmap);
-                <div>
-                <h2>Artist: @RelatedBeatmap.title</h2>
-                <h2>Link: @RelatedBeatmap.beatmapLink</h2>
-                <h2>Expected rank: @RelatedBeatmap.rank</h2>
-                <h2>Expected pp: @RelatedBeatmap.pp</h2>
-                </div>
-            }
-            else
-            { break; }
+﻿<h1> Beatmaps by Main Mod </h1>
+@{ 
+    int i = 0;
+    foreach (var RelatedBeatmap in Model.RelatedBeatmaps)
+    {
+        i++;
+        if (i<= 10) { 
+        RelatedBeatmap.SetBeatmapInfo(RelatedBeatmap);
+    <div class="image">
+        <a href="@RelatedBeatmap.beatmapLink" target="_blank"><img src="@RelatedBeatmap.coverLink"></a>
+        <h2 class="name"><a href="@RelatedBeatmap.beatmapLink" target="_blank" class="beauty"><span>@RelatedBeatmap.artist - @RelatedBeatmap.title</span></a></h2>
+        <h2 class="data"><span>Expected pp: @RelatedBeatmap.pp<br>Expected rank: @RelatedBeatmap.rank</span>
+        </h2>
+    </div>
         }
-       
+        else
+        { break; }
     }
-</body>
-</html>
+}

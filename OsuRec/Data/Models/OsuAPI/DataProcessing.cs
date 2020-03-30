@@ -15,7 +15,7 @@ namespace OsuRec.Data.Models.OsuAPI
         private string ValidSymbols = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghigklmnopqrstuvwxyz1234567890";
 
 
-        protected string ProfileName = "D4NES1337";
+        protected string ProfileName = "Levkar";
         protected Int64 ProfileID;
         public dynamic userScores { get; protected set; }
 

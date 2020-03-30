@@ -17,7 +17,7 @@ namespace OsuRec.Controllers
 
         public ViewResult ListOfRelatedBeatmaps()
         {
-            //ViewBag.Mod = $"Main Mod: {_relationProcess.MainMod}".ToString();
+            ViewBag.Title = "Main mod related beatmaps";
             RelatedBeatmapsListViewModel relatedViewModel = new RelatedBeatmapsListViewModel();
             //relatedViewModel.RelatedBeatmaps = relatedBeatmaps;
             return View(relatedViewModel);

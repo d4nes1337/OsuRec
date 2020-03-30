@@ -1,0 +1,56 @@
+﻿body {
+    background-color: #ffffff;
+}
+
+a.beauty {
+    text-decoration: none;
+}
+
+
+p.intro {
+    font-size: 1.5em
+}
+
+
+p {
+    font-size: 1.125em;
+}
+
+
+.image {
+    position: relative;
+    width: 466px;
+    height: 360px;
+}
+
+h2.name {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+
+h2.data {
+    position: absolute;
+    top: 150;
+    left: 0;
+    width: 100%;
+}
+
+
+h2 span {
+    color: white;
+    font: bold 24px Helvetica, Sans-Serif;
+    letter-spacing: -1px;
+    background: rgb(0, 0, 0);
+    background: rgba(0, 0, 0, 0.7);
+    padding: 1px;
+    line-height: 1.21;
+}
+
+
+.nice_button {
+    width: 150px;
+    color: #000;
+    font-size: 18px;
+}
