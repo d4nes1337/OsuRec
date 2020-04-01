@@ -9,17 +9,20 @@ namespace OsuRec.Data.Models
 {
     public class RelationProcess
     {
+        //TODO: Make acc comparison
+        
+        
         public PlayStyleInfo playStyle = new PlayStyleInfo();
         private OsuAPI.DataProcessing dataProcessing = new OsuAPI.DataProcessing();
 
         public List<string> MainModBeatmaps = new List<string>();
         public List<string> SecondModBeatmaps = new List<string>();
 
-        private List<mock.MockScore> MainModScores = new List<mock.MockScore>();
-        private List<mock.MockScore> SecondModScores = new List<mock.MockScore>();
+        private List<Score> MainModScores = new List<Score>();
+        private List<Score> SecondModScores = new List<Score>();
 
-        public List<mock.MockRelatedBeatmap> RelatedBeatmapsByMainMod = new List<mock.MockRelatedBeatmap>();
-        public List<mock.MockRelatedBeatmap> RelatedBeatmapsBySecondMod = new List<mock.MockRelatedBeatmap>();
+        public List<RelatedBeatmap> RelatedBeatmapsByMainMod = new List<RelatedBeatmap>();
+        public List<RelatedBeatmap> RelatedBeatmapsBySecondMod = new List<RelatedBeatmap>();
 
         public string MainMod;
         public string SecondMod = "none";
@@ -52,9 +55,9 @@ namespace OsuRec.Data.Models
         }
 
 
-        private List<mock.MockScore> IfScoreIsInPPRange(List<string> ModBeatmaps, string Mod)
+        private List<Score> IfScoreIsInPPRange(List<string> ModBeatmaps, string Mod)
         {
-            List<mock.MockScore> beatmapScores = new List<mock.MockScore>();
+            List<Score> beatmapScores = new List<Score>();
             foreach (var item in ModBeatmaps)
             {
                 int i = 0;
@@ -63,7 +66,7 @@ namespace OsuRec.Data.Models
                 {
                     if (Convert.ToDecimal(ss.pp, culture) >= PPRangeFrom && Convert.ToDecimal(ss.pp, culture) <= PPRangeTo)
                     {
-                        mock.MockScore score = new mock.MockScore();
+                        Score score = new Score();
                         score.beatmap_ID = item;
                         score.enabled_mods = Mod;
                         score.user_id = ss.user_id;
@@ -81,7 +84,7 @@ namespace OsuRec.Data.Models
         }
 
 
-        private void GetRelatedUsersScores(List<mock.MockScore> scores)
+        private void GetRelatedUsersScores(List<Score> scores)
         {
             foreach (var item in scores)
             {
@@ -99,21 +102,21 @@ namespace OsuRec.Data.Models
             {
                 if (score.enabled_mods == MainMod)
                 {
-                    mock.MockRelatedBeatmap relatedBeatmap = AssembleRelatedBeatmap(score, MainMod);
+                    RelatedBeatmap relatedBeatmap = AssembleRelatedBeatmap(score, MainMod);
                     RelatedBeatmapsByMainMod.Add(relatedBeatmap);
                 }
                 else if (score.enabled_mods == SecondMod)
                 {
-                    mock.MockRelatedBeatmap relatedBeatmap = AssembleRelatedBeatmap(score, SecondMod);
+                    RelatedBeatmap relatedBeatmap = AssembleRelatedBeatmap(score, SecondMod);
                     RelatedBeatmapsBySecondMod.Add(relatedBeatmap);
                 }
             }
         }
 
 
-        private mock.MockRelatedBeatmap AssembleRelatedBeatmap(dynamic score, string mod)
+        private RelatedBeatmap AssembleRelatedBeatmap(dynamic score, string mod)
         {
-            mock.MockRelatedBeatmap relatedBeatmap = new mock.MockRelatedBeatmap();
+            RelatedBeatmap relatedBeatmap = new RelatedBeatmap();
             relatedBeatmap.beatmap_ID = score.beatmap_id;
             relatedBeatmap.pp = score.pp;
             relatedBeatmap.enabled_mods = mod;
@@ -123,12 +126,12 @@ namespace OsuRec.Data.Models
 
 
         #region Related beatmap list sortng methods
-        private List<mock.MockRelatedBeatmap> SortSimilarToTopScores(List<mock.MockRelatedBeatmap> relatedBeatmaps, List<string> modBeatmapIDs)
+        private List<RelatedBeatmap> SortSimilarToTopScores(List<RelatedBeatmap> relatedBeatmaps, List<string> modBeatmapIDs)
         {
             return relatedBeatmaps.Where(x => !(modBeatmapIDs.Any(y => y == x.beatmap_ID))).Distinct().ToList();
 
         }
-        private List<mock.MockRelatedBeatmap> AddLinks(List<mock.MockRelatedBeatmap> relatedBeatmaps)
+        private List<RelatedBeatmap> AddLinks(List<RelatedBeatmap> relatedBeatmaps)
         {
             foreach (var item in relatedBeatmaps)
             {

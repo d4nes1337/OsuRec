@@ -1,4 +1,4 @@
-﻿using OsuRec.Data.mock;
+﻿using OsuRec.Data;
 using OsuRec.Data.Models;
 using System;
 using System.Collections.Generic;
@@ -10,26 +10,38 @@ namespace OsuRec.ViewModels
 {
     public class RelatedBeatmapsListViewModel
     {
-        public List<MockRelatedBeatmap> RelatedBeatmaps { get; set; } = GetRelatedBeatmaps();
+        public string username { get; set; }
+        public List<RelatedBeatmap> RelatedBeatmapsByMainMod { get; set; }
+        public List<RelatedBeatmap> RelatedBeatmapsBySecondMod { get; set; }
 
         //private List<string> cbl_items = new List<string>();
 
         private static RelationProcess _relationProcess = new RelationProcess();
 
-        
-        
-        
-        public static List<MockRelatedBeatmap> GetRelatedBeatmaps()
+
+        public RelatedBeatmapsListViewModel(string username)
         {
-            _relationProcess.ShowStats("D4NES1337");
+            this.username = username;
+            RelatedBeatmapsByMainMod = GetRelatedBeatmapsByMainMod(username);
+            RelatedBeatmapsBySecondMod = GetRelatedBeatmapsBySecondMod(username);
+        }
+
+        public static List<RelatedBeatmap> GetRelatedBeatmapsByMainMod(string username)
+        {
+            _relationProcess.ShowStats(username);
             var relatedMapsByMainMod = _relationProcess.RelatedBeatmapsByMainMod;
             return relatedMapsByMainMod;
+        }
+        public static List<RelatedBeatmap> GetRelatedBeatmapsBySecondMod(string username)
+        {
+            var relatedMapsBySecondMod = _relationProcess.RelatedBeatmapsBySecondMod;
+            return relatedMapsBySecondMod;
         }
 
 
 
 
-        
+
 
 
 

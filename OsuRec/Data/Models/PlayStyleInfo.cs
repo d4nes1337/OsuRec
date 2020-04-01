@@ -90,6 +90,7 @@ namespace OsuRec.Data.Models
 
 
         // TODO: Make persentage instead of this simple summ algorythm
+        // TODO: Distribution chack
         private void SetPPRange()
         {
             PPRangeFrom = Convert.ToDecimal(UserPP[4], culture);

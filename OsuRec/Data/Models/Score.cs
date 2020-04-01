@@ -4,9 +4,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace OsuRec.Data.mock
+namespace OsuRec.Data
 {
-    public class MockScore : IBeatmap
+    public class Score : IBeatmap
     {
         public string beatmap_ID { get; set; }
         public string enabled_mods { get; set; }

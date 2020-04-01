@@ -6,21 +6,26 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using OsuRec.ViewModels;
-using OsuRec.Data.mock;
+using OsuRec.Data;
 
 namespace OsuRec.Controllers
 {
     public class RelatedBeatmapController : Controller
     {
-        private readonly List<MockRelatedBeatmap> relatedBeatmaps;
+        private RelatedBeatmapsListViewModel relatedViewModel;
 
-
-        public ViewResult ListOfRelatedBeatmaps()
+        [Route("ListOfRelatedBeatmapsByMainMod")]
+        public ViewResult ListOfRelatedBeatmaps(string _username)
         {
             ViewBag.Title = "Main mod related beatmaps";
-            RelatedBeatmapsListViewModel relatedViewModel = new RelatedBeatmapsListViewModel();
-            //relatedViewModel.RelatedBeatmaps = relatedBeatmaps;
+            relatedViewModel = new RelatedBeatmapsListViewModel(_username);
             return View(relatedViewModel);
         }
+        //[Route("ListOfRelatedBeatmapsBySecondMod")]
+        //public ActionResult ListOfRelatedBeatmapsBySecondMod()
+        //{
+        //    ViewBag.Title = "Second mod related beatmaps";
+        //    return PartialView();
+        //}
     }
 }

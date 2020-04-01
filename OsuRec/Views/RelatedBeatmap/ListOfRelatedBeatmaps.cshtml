@@ -1,19 +1,55 @@
-﻿<h1> Beatmaps by Main Mod </h1>
-@{ 
-    int i = 0;
-    foreach (var RelatedBeatmap in Model.RelatedBeatmaps)
-    {
-        i++;
-        if (i<= 10) { 
-        RelatedBeatmap.SetBeatmapInfo(RelatedBeatmap);
-    <div class="image">
-        <a href="@RelatedBeatmap.beatmapLink" target="_blank"><img src="@RelatedBeatmap.coverLink"></a>
-        <h2 class="name"><a href="@RelatedBeatmap.beatmapLink" target="_blank" class="beauty"><span>@RelatedBeatmap.artist - @RelatedBeatmap.title</span></a></h2>
-        <h2 class="data"><span>Expected pp: @RelatedBeatmap.pp<br>Expected rank: @RelatedBeatmap.rank</span>
-        </h2>
-    </div>
+﻿<script type="text/javascript">
+function hide_show(id1, id2) {
+document.getElementById(id1).style.display = document.getElementById(id1).style.display == 'none' ? 'block' : 'none';
+document.getElementById(id2).style.display = document.getElementById(id2).style.display == 'none' ? 'block' : 'none';
+};
+</script>
+<form action="">
+    <p><input type="button" value="Swap Mod" id="knopka" onclick="hide_show('mainmod', 'secondmod')" class="nice_button"></p>
+</form>
+<div id="mainmod">
+    <h1>Main mod beatmaps</h1>
+    @{
+        int i = 0;
+        foreach (var RelatedBeatmap in Model.RelatedBeatmapsByMainMod)
+        {
+            i++;
+            if (i <= 10)
+            {
+                RelatedBeatmap.SetBeatmapInfo(RelatedBeatmap);
+                <div class="image">
+                    <a href="@RelatedBeatmap.beatmapLink" target="_blank"><img src="@RelatedBeatmap.coverLink"></a>
+                    <h2 class="name"><a href="@RelatedBeatmap.beatmapLink" target="_blank" class="beauty"><span>@RelatedBeatmap.artist - @RelatedBeatmap.title</span></a></h2>
+                    <h2 class="data">
+                        <span>Expected pp: @RelatedBeatmap.pp<br>Expected rank: @RelatedBeatmap.rank</span>
+                    </h2>
+                </div>
+            }
+            else
+            { break; }
         }
-        else
-        { break; }
     }
-}
+</div>
+<div id="secondmod" style="display: none">
+    <h1>Second mod beatmaps</h1>
+    @{
+        int j = 0;
+        foreach (var RelatedBeatmap in Model.RelatedBeatmapsBySecondMod)
+        {
+            j++;
+            if (j <= 10)
+            {
+                RelatedBeatmap.SetBeatmapInfo(RelatedBeatmap);
+                <div class="image">
+                    <a href="@RelatedBeatmap.beatmapLink" target="_blank"><img src="@RelatedBeatmap.coverLink"></a>
+                    <h2 class="name"><a href="@RelatedBeatmap.beatmapLink" target="_blank" class="beauty"><span>@RelatedBeatmap.artist - @RelatedBeatmap.title</span></a></h2>
+                    <h2 class="data">
+                        <span>Expected pp: @RelatedBeatmap.pp<br>Expected rank: @RelatedBeatmap.rank</span>
+                    </h2>
+                </div>
+            }
+            else
+            { break; }
+        }
+    }
+</div>

@@ -4,9 +4,9 @@ using System.Linq;
 using System.Net;
 using System.Threading.Tasks;
 
-namespace OsuRec.Data.mock
+namespace OsuRec.Data
 {
-    public class MockRelatedBeatmap : Interfaces.IBeatmap
+    public class RelatedBeatmap : Interfaces.IBeatmap
     {
         public string beatmap_ID { get; set; }
         public string pp { get; set; }
@@ -17,7 +17,7 @@ namespace OsuRec.Data.mock
         public string artist { get; set; }
         public string coverLink { get; set; }
 
-        public MockRelatedBeatmap SetBeatmapInfo(MockRelatedBeatmap relatedBeatmap)
+        public RelatedBeatmap SetBeatmapInfo(RelatedBeatmap relatedBeatmap)
         {
             string webpage;
             using (WebClient client = new WebClient())
