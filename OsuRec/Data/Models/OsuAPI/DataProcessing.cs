@@ -1,8 +1,9 @@
-﻿using osu.Framework.IO.Network;
+﻿using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Net;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
@@ -53,13 +54,10 @@ namespace OsuRec.Data.Models.OsuAPI
         #region Helpers
         private dynamic getJsonFromApi(string request)
         {
-            using (var req = new JsonWebRequest<dynamic>($"{base_url}/api/{request}"))
-            {
-                Console.WriteLine("<!--");
-                req.Perform();
-                Console.WriteLine("-->");
-                return req.ResponseObject;
-            }
+            WebClient client = new WebClient();
+            string strPageCode = client.DownloadString($"{base_url}/api/{request}");
+            dynamic dobj = JsonConvert.DeserializeObject<dynamic>(strPageCode);
+            return dobj;
         }
 
         public static bool UsernameIsValid(string username) //False if username is invalid, if false => write: use userID

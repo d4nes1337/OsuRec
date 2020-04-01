@@ -5,8 +5,6 @@ VisualStudioVersion = 16.0.29324.140
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OsuRec", "OsuRec\OsuRec.csproj", "{169B22C3-8032-4E72-9E18-698034345FCC}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "osu.Game", "..\osu-tools-master\osu\osu.Game\osu.Game.csproj", "{A4E1B778-4D2E-4D2B-A2FB-FF53D9B24BD1}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -17,10 +15,6 @@ Global
 		{169B22C3-8032-4E72-9E18-698034345FCC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{169B22C3-8032-4E72-9E18-698034345FCC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{169B22C3-8032-4E72-9E18-698034345FCC}.Release|Any CPU.Build.0 = Release|Any CPU
-		{A4E1B778-4D2E-4D2B-A2FB-FF53D9B24BD1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A4E1B778-4D2E-4D2B-A2FB-FF53D9B24BD1}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A4E1B778-4D2E-4D2B-A2FB-FF53D9B24BD1}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A4E1B778-4D2E-4D2B-A2FB-FF53D9B24BD1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

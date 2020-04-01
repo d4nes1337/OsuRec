@@ -16,10 +16,7 @@
     <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="3.0.0" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.0.0" />
     <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\..\osu-tools-master\osu\osu.Game\osu.Game.csproj" />
+    <PackageReference Include="RestSharp" Version="106.10.1" />
   </ItemGroup>
 
   <ItemGroup>
