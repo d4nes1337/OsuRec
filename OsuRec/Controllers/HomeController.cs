@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using OsuRec.ViewModels;
 using Microsoft.AspNetCore.Mvc;
+using System.Collections;
 
 namespace OsuRec.Controllers
 {

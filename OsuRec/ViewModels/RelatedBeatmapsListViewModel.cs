@@ -16,27 +16,18 @@ namespace OsuRec.ViewModels
 
         //private List<string> cbl_items = new List<string>();
 
-        private static RelationProcess _relationProcess = new RelationProcess();
+        private RelationProcess _relationProcess { get; set; }
 
 
         public RelatedBeatmapsListViewModel(string username)
         {
             this.username = username;
-            RelatedBeatmapsByMainMod = GetRelatedBeatmapsByMainMod(username);
-            RelatedBeatmapsBySecondMod = GetRelatedBeatmapsBySecondMod(username);
+            RelationProcess _relationProcess = new RelationProcess();
+            _relationProcess.ShowStats(username);
+            RelatedBeatmapsByMainMod = _relationProcess.RelatedBeatmapsByMainMod;
+            RelatedBeatmapsBySecondMod = _relationProcess.RelatedBeatmapsBySecondMod;
         }
 
-        public static List<RelatedBeatmap> GetRelatedBeatmapsByMainMod(string username)
-        {
-            _relationProcess.ShowStats(username);
-            var relatedMapsByMainMod = _relationProcess.RelatedBeatmapsByMainMod;
-            return relatedMapsByMainMod;
-        }
-        public static List<RelatedBeatmap> GetRelatedBeatmapsBySecondMod(string username)
-        {
-            var relatedMapsBySecondMod = _relationProcess.RelatedBeatmapsBySecondMod;
-            return relatedMapsBySecondMod;
-        }
 
 
 

@@ -12,7 +12,9 @@ namespace OsuRec.Data.Models.OsuAPI
     public class DataProcessing
     {
         private const string base_url = "https://osu.ppy.sh";
-        private string Key = GetKey("../../OsuRec/OsuRec/Data/Models/OsuAPI/Key.txt");
+        //"../../OsuRec/OsuRec/Data/Models/OsuAPI/Key.txt"
+        //"h:/root/home/d4nes1337-001/www/osurec/Key.txt"
+        private string Key = GetKey("h:/root/home/d4nes1337-001/www/osurec/Key.txt");
         private string ValidSymbols = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghigklmnopqrstuvwxyz1234567890";
 
 
@@ -33,7 +35,7 @@ namespace OsuRec.Data.Models.OsuAPI
         }
         public void GetTopScores()
         {
-            dynamic userTopScores = getJsonFromApi($"get_user_best?k={Key}&u={ProfileName}&limit=30");
+            dynamic userTopScores = getJsonFromApi($"get_user_best?k={Key}&u={ProfileName}&m=0&limit=30");
             userScores = userTopScores;
         }
 

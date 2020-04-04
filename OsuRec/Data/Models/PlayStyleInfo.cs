@@ -96,9 +96,9 @@ namespace OsuRec.Data.Models
             PPRangeFrom = Convert.ToDecimal(UserPP[4], culture);
             var ppRangeTo = Convert.ToDecimal(UserPP[0], culture);
             if (ppRangeTo - PPRangeFrom <= 20)
-            { PPRangeTo = ppRangeTo + (ppRangeTo - PPRangeFrom) * 2; }
+            { PPRangeTo = 20 + ppRangeTo + (ppRangeTo - PPRangeFrom) * 2; } //TODO: Nu tut voobshe pizdec s potolka cifry=)))))
             else
-            { PPRangeTo = ppRangeTo + (ppRangeTo - PPRangeFrom); }
+            { PPRangeTo = -20 + ppRangeTo + (ppRangeTo - PPRangeFrom); }
         }
         #endregion
 
